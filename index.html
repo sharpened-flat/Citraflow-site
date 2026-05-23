@@ -276,9 +276,25 @@
                 Estimated Monthly Volume
                 <input type="text" name="volume" placeholder="e.g. 120 syringes / month" required />
               </label>
+              <label>
+                Clinical Context or Question
+                <textarea
+                  name="clinicalContext"
+                  rows="5"
+                  placeholder="Optional: share the access scenario, current lock protocol, or product questions for a tailored response."
+                ></textarea>
+              </label>
               <button class="button button-primary" type="submit">
-                Request Clinical Fact Sheet &amp; Quote
+                Generate GPT-5.5 Clinical Reply
               </button>
+              <p class="form-note">
+                This sends the request to an OpenAI-backed endpoint using the <code>gpt-5.5</code> model.
+              </p>
+              <p class="form-status" aria-live="polite"></p>
+              <section class="assistant-response" aria-live="polite" hidden>
+                <h3>AI Draft Response</h3>
+                <div class="assistant-response-body"></div>
+              </section>
             </form>
 
             <aside class="contact-note">
