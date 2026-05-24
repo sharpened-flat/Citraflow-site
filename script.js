@@ -1,25 +1,7 @@
-const tabButtons = document.querySelectorAll(".tab-button");
-const productCards = document.querySelectorAll(".product-card");
 const contactForm = document.querySelector(".contact-form");
 const statusNode = document.querySelector(".form-status");
 const responsePanel = document.querySelector(".assistant-response");
 const responseBody = document.querySelector(".assistant-response-body");
-
-tabButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const targetId = button.dataset.tab;
-
-    tabButtons.forEach((item) => {
-      const isActive = item === button;
-      item.classList.toggle("is-active", isActive);
-      item.setAttribute("aria-pressed", String(isActive));
-    });
-
-    productCards.forEach((card) => {
-      card.classList.toggle("is-active", card.id === targetId);
-    });
-  });
-});
 
 async function postQuoteRequest(payload) {
   const endpoints = ["/api/quote-assistant", "/.netlify/functions/quote-assistant"];
