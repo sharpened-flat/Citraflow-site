@@ -128,9 +128,18 @@ body::before {
   position: relative;
 }
 
+.nav-menu::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -0.75rem;
+  right: -0.75rem;
+  height: 0.85rem;
+}
+
 .nav-submenu {
   position: absolute;
-  top: calc(100% + 0.75rem);
+  top: calc(100% + 0.6rem);
   left: 50%;
   min-width: 16rem;
   padding: 0.55rem;
@@ -198,10 +207,10 @@ main {
 }
 
 .section-heading h2 {
-  font-size: clamp(2.7rem, 5vw, 5.5rem);
-  line-height: 0.95;
+  font-size: clamp(1.9rem, 3.5vw, 3.85rem);
+  line-height: 1;
   margin: 0;
-  max-width: 12ch;
+  max-width: 16ch;
 }
 
 .lede,
@@ -475,15 +484,73 @@ main {
 }
 
 .product-detail-card h2,
-.product-side-card h2 {
+.product-side-card h2,
+.product-packages h2,
+.product-video h2 {
   margin: 0 0 0.75rem;
   font-size: 1.6rem;
 }
 
 .product-detail-card p,
-.product-side-card p {
+.product-side-card p,
+.product-packages p,
+.product-video p {
   color: var(--muted);
   line-height: 1.7;
+}
+
+.product-packages,
+.product-video {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.package-card {
+  min-height: 8rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.package-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+.package-card span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-top: 1rem;
+  border-radius: var(--radius-sm);
+  background: #0e2428;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .breadcrumb {
@@ -659,6 +726,50 @@ main {
   border-radius: 28px;
 }
 
+.footer-company {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.7fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-logo {
+  max-width: 13rem;
+  max-height: 4.5rem;
+  object-fit: contain;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 14px;
+}
+
+.footer-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 1rem 0 0;
+}
+
+.footer-contact div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.footer-contact dt {
+  color: rgba(255, 255, 255, 0.58);
+  font: 700 0.75rem/1.2 "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-contact dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.5;
+}
+
 .footer-title {
   margin: 0 0 0.4rem;
   color: white;
@@ -690,6 +801,9 @@ main {
   .hero,
   .product-hero,
   .product-detail-grid,
+  .package-grid,
+  .footer-company,
+  .footer-contact,
   .product-grid,
   .contact-layout,
   .evidence-layout,
@@ -765,10 +879,7 @@ main {
     padding-top: 2rem;
   }
 
-  .section-heading h2 {
-    font-size: clamp(2.2rem, 10vw, 3.4rem);
-  }
-
+  .section-heading h2,
   .hero h1,
   .product-hero h1 {
     font-size: clamp(1.55rem, 7vw, 2.4rem);
