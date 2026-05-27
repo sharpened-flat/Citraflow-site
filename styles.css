@@ -410,6 +410,22 @@ main {
   margin-bottom: 2rem;
 }
 
+.product-heading-lockup,
+.evidence-heading-lockup {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(9rem, 18rem);
+  gap: 2rem;
+  align-items: center;
+}
+
+.product-heading-image,
+.evidence-heading-image {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  object-fit: contain;
+}
+
 .product-grid,
 .contact-layout,
 .evidence-layout {
@@ -754,7 +770,8 @@ main {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 4rem auto 2rem;
   padding: 1.5rem;
-  background: #0e2428;
+  /*background: #0e2428;*/
+  background: rgba(47, 115, 121, 0.2);
   color: rgba(255, 255, 255, 0.86);
   border-radius: 28px;
 }
@@ -766,7 +783,7 @@ main {
   align-items: start;
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(0,0,0, 0.14);
 }
 
 .footer-logo {
@@ -776,7 +793,7 @@ main {
   height: clamp(9.5rem, 16vw, 13rem);
   object-fit: contain;
   padding: 1.25rem;
-  background: white;
+  background: transparent;
   border-radius: 26px;
 }
 
@@ -793,7 +810,7 @@ main {
 }
 
 .footer-contact dt {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(0,0,0, 0.58);
   font: 700 0.75rem/1.2 "Avenir Next", "Helvetica Neue", sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -801,18 +818,18 @@ main {
 
 .footer-contact dd {
   margin: 0;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(0,0,0, 0.86);
   line-height: 1.5;
 }
 
 .footer-contact a {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(0,0,0, 0.92);
   text-decoration: none;
 }
 
 .footer-contact a:hover,
 .footer-contact a:focus-visible {
-  color: white;
+  color: black;
   text-decoration: underline;
 }
 
@@ -829,7 +846,7 @@ main {
 }
 
 .footer-disclaimer strong {
-  color: white;
+  color: black;
 }
 
 .footer-title {
@@ -953,6 +970,18 @@ main {
 
   .hero-product-logo {
     max-width: 11rem;
+  }
+
+  .product-heading-lockup,
+  .evidence-heading-lockup {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .product-heading-image,
+  .evidence-heading-image {
+    max-width: 11rem;
+    justify-self: start;
   }
 
   .footer-logo {
