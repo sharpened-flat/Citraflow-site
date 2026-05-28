@@ -2,6 +2,27 @@ const contactForm = document.querySelector(".contact-form");
 const statusNode = document.querySelector(".form-status");
 const responsePanel = document.querySelector(".assistant-response");
 const responseBody = document.querySelector(".assistant-response-body");
+const topbar = document.querySelector(".topbar");
+const navToggle = document.querySelector(".nav-toggle");
+const primaryNav = document.querySelector(".nav");
+
+navToggle?.addEventListener("click", () => {
+  const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+
+  navToggle.setAttribute("aria-expanded", String(!isOpen));
+  topbar?.classList.toggle("nav-open", !isOpen);
+});
+
+primaryNav?.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (!(target instanceof HTMLAnchorElement) || window.innerWidth > 720) {
+    return;
+  }
+
+  navToggle?.setAttribute("aria-expanded", "false");
+  topbar?.classList.remove("nav-open");
+});
 
 async function postQuoteRequest(payload) {
   const endpoints = ["/api/quote-assistant", "/.netlify/functions/quote-assistant"];
