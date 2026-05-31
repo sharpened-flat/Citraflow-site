@@ -423,6 +423,20 @@ main {
   font-size: 1.55rem;
 }
 
+.panel-card h2 a,
+.product-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.panel-card h2 a:hover,
+.panel-card h2 a:focus-visible,
+.product-card h3 a:hover,
+.product-card h3 a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .panel-card p,
 .panel-card li,
 .value-strip p,
